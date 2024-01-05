@@ -1,0 +1,64 @@
+<div class="modal fade" id="addUserToGroupModal" tabindex="-1" role="dialog" aria-labelledby="addUserToGroupModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserToGroupModalLabel"><strong>Add New Users</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ url_for('groups')}}" method="post" class="">
+                <div class="modal-body" id="addUserToGroupModalBody">
+
+                    <input type="hidden" id="groupIdAddUserInput" name="groupIdAddUser" value="">
+
+                    <div class="row form-group">
+                 
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="height: 38px; width: 42px;">
+                                    <i class="fa fa-user-plus"></i>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle"
+                                        style="background-color: white; border-color: lightgray; color:#1b3550;"
+                                        type="button" id="multiSelectDropdown3" data-bs-toggle="dropdown"
+                                        aria-expanded="true">
+                                        Add Users
+                                    </button>
+                                    <ul class="dropdown-menu" id="dropdown3" aria-labelledby="multiSelectDropdown3">
+                                        {% for item in data %}
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" name="add_new_users" value="{{item['id']}}" groupId="{{item['id']}}"
+                                                    data-firstname="{{item['firstName']}}">
+
+                                                {{item["firstName"] }} {{item["lastName"]}}
+                                            </label>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions form-group"></div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn" id="submitBtn">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

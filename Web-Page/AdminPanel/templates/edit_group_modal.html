@@ -1,0 +1,97 @@
+<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="groupModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="groupModalLabel"><strong>Edit Group</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="{{ url_for('groups')}}" method="post" class="">
+                <div class="modal-body" id="groupModalBody">
+
+                    <input type="hidden" id="groupIdInput" name="groupId" value="">
+
+                    <div class="row form-group">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-group"></i></div>
+                                <input type="text" id="newGroupname" name="newGroupname" placeholder="Group Name"
+                                    class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="height: 38px; width: 42px;">
+                                    <i class="fa fa-user-plus"></i>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button class="btn  dropdown-toggle"
+                                        style="background-color: white; border-color: lightgray; color:#1b3550;"
+                                        type="button" id="multiSelectDropdown1" data-bs-toggle="dropdown"
+                                        aria-expanded="true">
+                                        Add Users
+                                    </button>
+                                    <ul class="dropdown-menu" id="dropdown1" aria-labelledby="multiSelectDropdown1">
+                                        {% for item in data %}
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" name="new_selected_users" value="{{item['id']}}"
+                                                    data-firstname="{{item['firstName']}}">
+
+                                                {{item["firstName"] }} {{item["lastName"]}}
+                                            </label>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+
+                                <select name="newGroupleader" id="newGroupleader" class="form-control" required>
+                                    <option value="" disabled selected>Select Leader</option>
+
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="max-height: 38px; max-width: 42px;"><i
+                                        class="ti-file "></i></div>
+                                <textarea name="new-textarea-input" id="new-textarea-input" rows="3"
+                                    placeholder="Description..." class="form-control" required></textarea>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions form-group"></div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn" id="submitBtn">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

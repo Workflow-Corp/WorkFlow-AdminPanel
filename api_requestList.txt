@@ -1,0 +1,341 @@
+        /* Task/CreateTask
+         * Method: POST
+         * 
+         * @param Title: string
+         * @param Description: string
+         * @param StartTime: DateTime
+         * @param EndTime: DateTime
+         * @param CreatorUsername: string
+         * @param SentToTable: int
+         * @param SentTo: int[]
+         * @param Workload: int
+         * 
+         * @return bool
+         * 
+         * Creates a task with the given information.
+         * 
+         */
+
+	/* Task/ReviseTask 
+	*   Method: POST
+	*  
+	*   @param taskId
+	*   @param RevisionDescription
+	*   @return -
+	*  
+	*   Takes a taskId and revision description and asks for revision for the task with given id.
+	*/
+
+        /*  Task/ConfirmSubmittedTask
+        *   Method: POST
+        *  
+        *   @param taskId
+        *   @param score
+        *   @return -
+        *  
+        *   Takes a taskId and score and confirms the submittion of the task with that id.
+        */
+
+
+        /*  Task/SubmitTask
+         *  Method: POST
+         *  
+         *  @param taskId
+         *  @return -
+         *  
+         *  Takes a taskId and submits the task with that id.
+         */
+
+
+        /*  Task/GetTaskListByUsername
+        *   Method: GET
+        * 
+        *   @param username
+        *   @param amount
+        *   @param page
+        *   @return TaskListDTO[]
+        *   
+        * TaskListDTO: {
+        *    Id: int
+        *    Title: string
+        *    Description: string
+        *    StartTime: DateTime
+        *    EndTime: DateTime
+        *    Creator: string
+        *    Status: string
+        * }
+        * 
+        * Returns a list of tasks that are assigned to the user with the given username.
+        * The list is ordered by the end time of the task.
+        * If amount is 0, then all tasks are returned.
+        * If page is 0, then the first amount tasks are returned.
+        * Otherwise, the page-th page of tasks is returned, where each page has amount tasks.
+        */
+
+
+
+
+
+
+        /* Group/GetGroupList
+         * 
+         * @return Group[]
+         * 
+         * Method: GET
+         * 
+         * Returns a list of all groups
+         * 
+         * 
+         * 
+         * Group contains the following fields:
+         * int id
+         * string name
+         * int leaderId
+         * string description
+         * int calendarId
+         * int messageBoardId
+         * int creatorId
+         */
+
+        /* Group/CreateGroup
+         * 
+         * Method: POST
+         * 
+         * @param group
+         * @return Group
+         * 
+         * Creates a new group with the given group object
+         * 
+         * 
+         * 
+         * group contains the following fields:
+         * string name
+         * int leaderId
+         * string description
+         * int creatorId
+         */
+
+        /* Group/AddUsersToGroup
+         * Method: POST
+         * 
+         * @param groupId
+         * @param userIds[]
+         * @return void
+         * 
+         * Adds the users in groupMembers to the group with the given groupId
+         * 
+         * 
+         */
+
+        /* Group/GetGroupMembers
+         * Method: GET 
+         * 
+         * @param groupId
+         * @return List<GroupMembersDTO>
+         *
+         *
+         * Returns a list of GroupMembersDTOs for the given groupId
+         * 
+         * GroupMembersDTO contains the following fields:
+         * int memberId
+         * string memberName
+         * bool isLeader
+         * string title
+         * string username
+         */
+
+        /* Group/GetGroupListByUsername
+         * Method: GET
+         * 
+         * @param username
+         * @return Group[]
+         * 
+         * Returns a list of groups that the user with the given username is a member of
+         * 
+         * 
+         * 
+         * Group contains the following fields:
+         * int id
+         * string name
+         * int leaderId
+         * string description
+         * int calendarId
+         * int messageBoardId
+         * int creatorId
+         */
+
+
+
+
+
+
+
+
+        /* MessageBoard/GetMessages
+         * Method: GET
+         * 
+         * @param messageBoardId
+         * @return Message[]
+         * 
+         * Returns a list of all messages in the message board with the given messageBoardId
+         * 
+         * 
+         * 
+         * Message contains the following fields:
+         * int id
+         * int messageBoardId
+         * string text
+         * int senderId
+         * DateTime dateCreated
+         */
+
+        /* MessageBoard/SendMessage
+         * Method: POST
+         * 
+         * @param message
+         * @return Message
+         * 
+         * Creates a new message with the given message object
+         * 
+         * 
+         * 
+         * message contains the following fields:
+         * int messageBoardId
+         * string text
+         * int senderId
+         */
+
+
+
+
+
+
+        /* Notification/GetNotificationListByGroupId
+         * Method: GET
+         * 
+         * 
+         * @param groupId
+         * @return Notification[]
+         * 
+         * 
+         * Returns a list of all notifications sent to the group with the given groupId
+         * 
+         * 
+         * Notification contains the following fields:
+         * int id
+         * string title
+         * string description
+         * DateTime sentTime
+         * int eventId
+         * string eventTypeName
+         * string status
+         */
+
+        /* Notification/GetNotificationListByUsername
+         * Method: GET
+         * 
+         * 
+         * @param username
+         * @param amount
+         * @param page
+         * @return Notification[]
+         * 
+         * 
+         * Returns a list of all notifications sent to the tag with the given username
+         * 
+         * 
+         * Notification contains the following fields:
+         * int id
+         * string title
+         * string description
+         * DateTime sentTime
+         * int eventId
+         * string eventTypeName
+         * string status
+         */
+
+
+
+
+
+        /* Tag/GetTagList
+         * 
+         * @return Tag[]
+         * 
+         * Method: GET
+         * 
+         * Returns a list of all tags
+         * 
+         * 
+         * 
+         * Tag contains the following fields:
+         * int id
+         * string name
+         * string description
+         * int hierarchyPoint
+         */
+
+        /* Tag/CreateTag
+         * 
+         * Method: POST
+         * 
+         * @param string name
+         * @param string description
+         * @param int hierarchyPoint
+         * @return bool
+         * 
+         * Creates a new tag with the given tag object
+         * 
+         * 
+         */
+
+
+
+
+
+
+        /* User/GetUserList
+         * Method: GET
+         * @return User[]
+         * 
+         * User contains the following fields:
+         * string username
+         * string FirstName
+         * string LastName
+         * int Age
+         * string Gender
+         * strig Title
+         */
+
+        /* User/CreateUser
+         * Method: POST
+         * 
+         * @param CreateUserDTO
+         * @return bool
+         * 
+         * Creates a new user with the given user object
+         * 
+         * CreateUserDTO contains the following fields:
+         *
+         * string username
+         * string password
+         * string FirstName
+         * string LastName
+         * int Age
+         * string Gender
+         * strig Title
+         */
+
+        /* User/Login
+         * Method: POST
+         * 
+         * @param LoginDTO
+         * @return bool
+         * 
+         * Logs in a user with the given login object
+         * 
+         * LoginDTO contains the following fields:
+         *
+         * string username
+         * string password
+         */

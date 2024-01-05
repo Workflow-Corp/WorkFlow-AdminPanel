@@ -1,0 +1,43 @@
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="menu-title"> Admin Panel Menu </li>
+
+                <li>
+                    <a id="menuToggle" class="menutoggle"> <i class="menu-icon fa fa-bars"> </i> Hide Menu </a>
+                </li>
+
+                {% if dashboard_check  %}
+                <li class="{{ 'active' if request.path == '/' else '' }}">
+                    <a href="/"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                </li>
+
+                {% endif %}
+
+                {% if authorization_check   %}
+                <li class="{{ 'active' if request.path == '/authorizations' else '' }}">
+                    <a href="/authorizations"><i class="menu-icon fa fa-key"></i>Authorizations </a>
+                </li>
+                {% endif %}
+
+                {% if user_check  %}
+                <li
+                    class="{{ 'active' if request.path == '/users' or request.path == '/users/user-analytics' else '' }}">
+                    <a href="/users"><i class="menu-icon fa fa-user"></i> Users </a>
+                </li>
+
+                {% endif %}
+
+                {% if group_check  %}
+                <li class="{{ 'active' if request.path == '/groups' else '' }}">
+                    <a href="/groups"><i class="menu-icon fa fa-group"></i>Groups </a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>
